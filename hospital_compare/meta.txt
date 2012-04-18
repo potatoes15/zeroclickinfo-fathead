@@ -17,4 +17,4 @@ MediaWiki: 0
 
 # Keywords uses to trigger (or prefer) the source over others.
 # Can seperate multiple keywords with,
-Keywords: hospitalcompare
+Keywords: hospital, quality
