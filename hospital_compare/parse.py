@@ -46,9 +46,13 @@ with open(filename, 'rb') as f:
 output = open('output.txt', 'w')
 tab = "\t"
 external_link = "[http://www.hospitalcompare.hhs.gov/ Medicare Hospital Compare]\\n"
+abstract_tmpl = "%(def_recommend)s%% of patients would DEFINITELY recommend %(name)s."
+source_url_tmpl = "http://www.hospitalcompare.hhs.gov/hospital-profile.aspx?pid=%(hosp_id)s"
+
 for hosp in hospitals:
-    abstract = "%(def_recommend)s%% of patients would DEFINITELY recommend %(name)s." % hospitals[hosp]
-    source_url = "http://www.hospitalcompare.hhs.gov/hospital-profile.aspx?pid=%(hosp_id)s" % hospitals[hosp]
+    abstract =  abstract_tmpl % hospitals[hosp]
+    source_url = source_url_tmpl % hospitals[hosp]
     line = hosp + tab + "A" + tab*7 + external_link + tab*3 + abstract + tab + source_url + "\n"
     output.write(line)
+
 output.close()
